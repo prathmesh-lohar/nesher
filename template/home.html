@@ -27,6 +27,26 @@
 <!-- main -->
 
 <center>
+  {% for i in news_list %}
+  <div style="box-shadow: 10px 5px 5px rgba(13, 0, 0, 0.404); width: 300px;">
+      
+
+        
+        <p>title : {{i.title}}</p>
+       
+        <p><a href="{{i.link}}"> Url</a></p>
+  
+        <p>publishedAt: {{i.publishedAt}}</p>
+        <p>content : {{i.content}}</p>
+  
+  
+  </div>  
+  {% endfor %}
+
+
+
+
+<center>
 {% for i in articles %}
 <div style="box-shadow: 10px 5px 5px rgba(13, 0, 0, 0.404); width: 300px;">
     

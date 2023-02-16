@@ -1,0 +1,11 @@
+    url = ('https://newsapi.org/v2/top-headlines?country=in&apiKey=826f05f00a2847738c60df0260a8691b')
+    response = requests.get(url)
+    data = response.json()
+    articles = data['articles']
+
+    client = gnewsclient.NewsClient(language='english',
+                                location='india',
+                                topic='sports',
+                                max_results=3)
+ 
+    news_list = client.get_news()
