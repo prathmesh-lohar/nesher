@@ -9,3 +9,15 @@
                                 max_results=3)
  
     news_list = client.get_news()
+
+
+    
+    googlenews = GoogleNews(lang='en', region='US',period='7d')
+    
+    googlenews.get_news('APPLE')
+
+    
+
+    res = googlenews.results()
+
+    print(res)
