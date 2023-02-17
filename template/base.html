@@ -15,6 +15,30 @@
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- mdb -->
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+
+    <!-- MDB -->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+    ></script>
+
 </head>
   <body>
     
@@ -42,48 +66,183 @@
 <!-- main -->
 
 
+
 <main class="mdc-top-app-bar--fixed-adjust">
 
 
-   
-<div class="container-fluid best-price-pc">
+        <!-- Tabs navs -->
+<ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link active"
+      id="ex3-tab-1"
+      data-mdb-toggle="tab"
+      href="#ex3-tabs-1"
+      role="tab"
+      aria-controls="ex3-tabs-1"
+      aria-selected="true"
+      >Home</a
+    >
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link"
+      id="ex3-tab-2"
+      data-mdb-toggle="tab"
+      href="#ex3-tabs-2"
+      role="tab"
+      aria-controls="ex3-tabs-2"
+      aria-selected="false"
+      >Top Headlines </a
+    >
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link"
+      id="ex3-tab-3"
+      data-mdb-toggle="tab"
+      href="#ex3-tabs-3"
+      role="tab"
+      aria-controls="ex3-tabs-3"
+      aria-selected="false"
+      >Another link</a
+    >
+  </li>
+</ul>
+<!-- Tabs navs -->
 
-  <div class="row">
-      {% for h in news_list%} {% if forloop.counter0|divisibleby:4 %}
-  </div><br>
-  <div class="row">
-      {% endif %}
+    <!-- Tabs content -->
+    <div class="tab-content" id="ex2-content">
+      <div
+        class="tab-pane fade show active"
+        id="ex3-tabs-1"
+        role="tabpanel"
+        aria-labelledby="ex3-tab-1"
+      >
+       
 
-      <div class="col-md-3">
-
-          <div class="card bestp rounded-top rounded-bottom-0 shadow  d-flex justify-content-around">
-
-              <a href="{{h.link}}" style="    text-decoration: none; color: black;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+    
+            <div class="row">
+              {% for h in articles%} {% if forloop.counter0|divisibleby:2 %}
+            </div><br>
+            <div class="row">
+                {% endif %}
+    
+              <div class="col-md-6">
+                <div class="card my-1">
+                  <img src="{{h.urlToImage}}" loading="lazy" style="max-width: 100%;" class="card-img-top text-center m-0" alt="Fissure in Sandstone"/>
                   <div class="card-body">
-
-                      <img src="{{h.image}}" class="card-img-top rounded-bottom-0 rounded-top" style="height: 300px;">
-                      <h5 class="card-title">{{h.title}}</h5>
-                      <p class="card-text " style="font-size: 10px;"><span style="font-size: 10px; color: red;">Source : </span> 
-                        <span font-size: 10px; color: green;>{{h.site_name}}</span></p>
-                      <p>{{h.description}}</p>
-                      
-                      
-           </a>
+                    <h5 class="card-title">{{h.title}}</h5>
+                    <p class="fs-6" ><b>Source: </b>{{h.source.name}} </p>
+                    <p class="card-text">{{h.description}}</p>
+                    <p class="" style="font-size: 15px;">{{h.author}} | {{h.publishedAt}} </p>
+    
+                    <a href="{{h.url}}" class="btn btn-primary">Read More</a>
+    
                   </div>
+                </div>
+                
+    
+              </div>
+              
+              {% endfor %}
+            </div>
+    
           </div>
-          </a>
+    
+    
+    
+    
+          <div class="col-md-4 my-3">
+    
+            
+            {% for i in res %}
+            <a href="{{i.link}}" style="text-decoration: none; color: black;">
+              <div class="card my-2" >
+               
+                <div class="card-body">
+                  <p class="card-text">  <img src="{{i.img}}" loading="lazy" class="" alt=""/>  <span style="    font-size: 12px;
+                    margin-left: 8px;"> <b>{{i.media}}</b> </span></p>
+                  <h5 class="card-title">{{i.title}}</h5>
+                  <p class="card-text">{{i.desc}}</p>
+                  <p class="card-text">{{i.date}}</p>
+    
+                  
+                </div>
+              </div>   
+            </a>      
+            {% endfor %}
+              
+         
+          </div>
+           
+        </div>
+      </div>       
+       
+
+
 
       </div>
-      {% endfor %}
-  </div>
+      <div
+        class="tab-pane fade"
+        id="ex3-tabs-2"
+        role="tabpanel"
+        aria-labelledby="ex3-tab-2"
+      >
+        
+      
+      <div class="container">
+        {% for i in res %}
+        <a href="{{i.link}}" style="text-decoration: none; color: black;">
+          <div class="card my-2" >
+           
+            <div class="card-body">
+              <p class="card-text">  <img src="{{i.img}}" loading="lazy" class="" alt=""/>  <span style="    font-size: 12px;
+                margin-left: 8px;"> <b>{{i.media}}</b> </span></p>
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">{{i.desc}}</p>
+              <p class="card-text">{{i.date}}</p>
 
+              
+            </div>
+          </div>   
+        </a>      
+        {% endfor %}
+          
+     
+      </div>
+        
+
+      </div>
+      <div
+        class="tab-pane fade"
+        id="ex3-tabs-3"
+        role="tabpanel"
+        aria-labelledby="ex3-tab-3"
+      >
+        Sorry !!..
+      </div>
+    </div>
+    <!-- Tabs content -->
+
+
+
+
+  
+
+ 
 </div>
 
-            
+
 
     
 </main>
 
+
+<!-- flip -->
 
 
     
