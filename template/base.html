@@ -49,7 +49,7 @@
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
         
-        <span class="mdc-top-app-bar__title"><img src="{% static 'logo/logo.png' %}" alt="Bootstrap" class="logo"></span>
+        <span class="mdc-top-app-bar__title"><img src="{% static 'logo/logo.png' %}" alt="" class="logo"></span>
       </section>
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar" >
         
@@ -133,7 +133,7 @@
     
               <div class="col-md-6">
                 <div class="card my-1">
-                  <img src="{{h.urlToImage}}" loading="lazy" style="max-width: 100%;" class="card-img-top text-center m-0" alt="Fissure in Sandstone"/>
+                  <img src="{{h.urlToImage}}" loading="lazy" style="max-width: 100%;" class="card-img-top text-center m-0" alt=""/>
                   <div class="card-body">
                     <h5 class="card-title">{{h.title}}</h5>
                     <p class="fs-6" ><b>Source: </b>{{h.source.name}} </p>
@@ -160,7 +160,7 @@
     
             
             {% for i in res %}
-            <a href="{{i.link}}" style="text-decoration: none; color: black;">
+            <a href="https://{{i.link}}" style="text-decoration: none; color: black;">
               <div class="card my-2" >
                
                 <div class="card-body">
@@ -196,7 +196,7 @@
       
       <div class="container">
         {% for i in res %}
-        <a href="{{i.link}}" style="text-decoration: none; color: black;">
+        <a href="https://{{i.link}}" style="text-decoration: none; color: black;">
           <div class="card my-2" >
            
             <div class="card-body">
